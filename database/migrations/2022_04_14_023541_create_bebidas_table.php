@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('bebidas', function (Blueprint $table) {
             $table->id();
-            $table->string('name',255);
-            $table->double('price',8,2);
-            $table->string('description',255);
+            $table->string('name', 255);
+            $table->double('price', 8, 2);
+
+            $table->string('description', 255);
             $table->binary('file');
             $table->timestamps();
         });

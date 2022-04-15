@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Pizza extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','price','description','file'];
+    protected $fillable = ['name', 'price', 'description', 'file'];
     public function pedido()
     {
-        return $this->belongsTo(Pedido::class);
+        return $this->belongsTo(Pedido::class, 'name');
     }
 }

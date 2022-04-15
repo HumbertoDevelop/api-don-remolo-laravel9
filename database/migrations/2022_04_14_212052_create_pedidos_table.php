@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('empanadas', function (Blueprint $table) {
+        Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
-            $table->double('price', 8, 2);
-
-            $table->string('description', 255);
-            $table->binary('file');
+            $table->string('description',255)->nullable();
+            $table->foreignId('bebida_id')->nullable()->constrained();
+            $table->foreignId('empanada_id')->nullable()->constrained();
+            $table->foreignId('pizza_id')->nullable()->constrained();
+            $table->foreignId('postre_id')->nullable()->constrained();
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('empanadas');
+        Schema::dropIfExists('pedidos');
     }
 };
