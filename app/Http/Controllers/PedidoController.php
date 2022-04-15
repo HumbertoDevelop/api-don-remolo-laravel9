@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pedido;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class PedidoController extends Controller
 {
@@ -14,7 +15,12 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        //
+        $pedidos = Pedido::all();
+
+        return Response()->json([
+            "data" => $pedidos,
+            "status" => Response::HTTP_OK
+        ], status : Response::HTTP_OK);
     }
 
     /**
@@ -35,7 +41,12 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pedido = Pedido::create($request->all());
+
+        return Response()->json([
+            "data" => $pedido,
+            "status" => Response::HTTP_OK
+        ], status : Response::HTTP_OK);
     }
 
     /**
@@ -46,7 +57,12 @@ class PedidoController extends Controller
      */
     public function show(Pedido $pedido)
     {
-        //
+       
+
+        return Response()->json([
+            "data" => $pedido,
+            "status" => Response::HTTP_OK
+        ], status : Response::HTTP_OK);
     }
 
     /**
